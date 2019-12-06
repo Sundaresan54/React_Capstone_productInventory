@@ -7,14 +7,14 @@ class Header extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-                    
-                <a className="navbar-brand" href="/">Product Inventory</a>
 
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <a className="navbar-brand" href="/">Product Inventory</a>
+
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                <div className="collapse navbar-collapse" id="collapsibleNavbar">
+                    <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav justify-content-center ml-auto">
                             <li className="nav-item">
                                 <a className="nav-link" href="/">Link</a>
@@ -27,38 +27,43 @@ class Header extends Component {
                             </li>
                         </ul>
                         <ul className="navbar-nav ml-auto">
-                             <li className="nav-item"><a className="nav-link" href="/"><span className="fa fa-sign-in"></span> Login</a></li>
-                             <li className="nav-item"><a className="nav-link" href="/"><span className="fa fa-user"></span> Sign Up</a></li>
-                               
+                            <li className="nav-item"><button data-toggle="modal" data-target="#myModal" className="nav-link loginButton"><i className="fa fa-sign-in"></i> Login</button></li>
+                            <li className="nav-item"><a className="nav-link" href="/"><span className="fa fa-user"></span> Sign Up</a></li>
+
                         </ul>
                     </div>
                 </nav>
 
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
 
-                {/* <nav class="navbar navbar-inverse">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="/">Product Inventory</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="myNavbar">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="/">Home</a></li>
-                                <li><a href="/">Page 1</a></li>
-                                <li><a href="/">Page 2</a></li>
-                                <li><a href="/">Page 3</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                            </ul>
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Login</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div>
+                                    <label className="label-text">User Id</label>
+                                    <input type="text" name="userId"></input>
+                                </div>
+                                <div>
+                                    <label className="label-text">Password</label>
+                                    <input type="text" name="password"></input>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline-success login-btn" data-dismiss="modal">Submit</button>
+                                    <button type="button" class="btn btn-outline-danger login-btn" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
-                </nav> */}
+                </div>
 
                 {this.props.children}
             </div >

@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: false }));
 //   extended: false
 // }));
 
-app.use('/authService',authRouter);
-app.use('/products',productRouter);
+app.use('/authService', authRouter);
+app.use('/products', productRouter);
 
 // app.use(function(req, res, next) {
 //     next();
@@ -31,10 +31,10 @@ app.use('/products',productRouter);
 //     // set locals, only providing error in development
 //     res.locals.message = err.message;
 //     res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
+
 //     // render the error page
 //     res.status(err.status || 500);
 //     res.render('error');
 //   });
 
-app.listen(3001);
+app.listen(3005);
