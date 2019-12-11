@@ -30,8 +30,10 @@ class Home extends Component {
         return (
             <div>
                 <h2>Products</h2>
-                <div>
+                <div class="container-fluid">
+                <div class="row">
                 {data}
+                </div>
                 </div>
             </div>
         )
@@ -40,7 +42,7 @@ class Home extends Component {
 
 const mapStateToProps = (state) => ({
     
-  allProducts : state.productData
+  allProducts : state.products.productData
 })
 
 export default connect(mapStateToProps,{getAllProducts})(Home)

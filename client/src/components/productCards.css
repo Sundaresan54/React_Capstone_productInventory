@@ -1,12 +1,14 @@
 .product{
-    width:400px;
-    margin:10px;
-    display: inline-flex;
+    padding:10px;
 }
+
+.productimg{
+    margin-top: 40px;
+}
+
 .product-img{
-    display:flex;
-    margin-top: 50px
-    
+    margin-top: 50px;
+    display: flex;
 }
 .btn-right{
     float:right;

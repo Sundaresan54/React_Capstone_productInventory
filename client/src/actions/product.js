@@ -21,7 +21,5 @@ export function getAllProducts() {
 
 }
 
-export function getAll() {}
-
 function success(productData) { return { type: ALLPRODUCTS_SUCCESS, productData } }
 function fail(message) { return { type: ALLPRODUCTS_FAILED, message } }

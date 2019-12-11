@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getAllProducts=async()=>{
-    let res = await axios.get('http://localhost:3001/products/all')
+    let res = await axios.get('http://localhost:3005/products/all')
     .then((result)=>result.data)
     .catch(e=>{
         throw new Error(e.response.data.message);
@@ -9,16 +9,24 @@ const getAllProducts=async()=>{
       return res;
 }
 
-const getAll=async()=>{
-    let res = await axios.get('http://localhost:3001/products/all')
+const loginCall=async(userId,password)=>{
+    let res = await axios({
+      method: 'post',
+      url: 'http://localhost:3005/authService/users/login',
+      data: {
+        emailId: userId,
+        password: password
+      },
+      headers:{'Content-Type':'application/json'}
+    })
     .then((result)=>result.data)
     .catch(e=>{
-        throw new Error(e.response);
+        throw new Error(e.response.data.message);
       });
       return res;
 }
 
-export { getAllProducts, getAll};
+export { getAllProducts, loginCall};
 
 // async function register(user) {
 //     const res= await axios.post(config.registerUrl, user)
