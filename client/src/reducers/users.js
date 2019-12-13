@@ -4,17 +4,20 @@ const initialState = {
 };
 
 const loginReducer = (state = initialState , action) => {
-    const {type, userData} = action;
+    const {type, userData, error} = action;
     
     switch (type) {
         case LOGIN_SUCCESS:
-            console.log("ALLPRODUCTS_SUCCESS in reducer",type,userData)
+            console.log("LOGIN_SUCCESS in reducer",{...state,...userData})
+            console.log("LOGIN_SUCCESS and modal in reducer",state)
             return {
                 ...state,
-                userData
+                authenticated:true,
+                ...userData
             }
         case LOGIN_FAILED:
-            return action.message
+            console.log("LOGIN_SUCCESS in reducer",{...state,error})
+            return {...state, authenticated:false, error}
         default:
             return state
     }

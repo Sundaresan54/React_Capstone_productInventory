@@ -12,13 +12,13 @@ class Home extends Component {
     }
     
     UNSAFE_componentWillMount(){
-        console.log("11111111",this.props);
+        //console.log("11111111",this.props);
         this.props.getAllProducts();
     }
     render() {
         let data =[];
         let allProducts = this.props.allProducts;
-        console.log("44444444",allProducts);
+        //console.log("44444444",allProducts);
         if(allProducts){
            data = allProducts.map((product)=>{
                 return <ProductCards key={product._id} product = {product} />
@@ -30,8 +30,8 @@ class Home extends Component {
         return (
             <div>
                 <h2>Products</h2>
-                <div class="container-fluid">
-                <div class="row">
+                <div className="container-fluid">
+                <div className="row">
                 {data}
                 </div>
                 </div>

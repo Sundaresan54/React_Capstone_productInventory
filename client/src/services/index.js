@@ -26,7 +26,20 @@ const loginCall=async(userId,password)=>{
       return res;
 }
 
-export { getAllProducts, loginCall};
+const logout=async(token)=>{
+  let res = await axios({
+    method: 'get',
+    url: 'http://localhost:3005/authService/users/logout',
+    headers:{'x-access-token':token}
+  })
+  .then((result)=>result.data)
+  .catch(e=>{
+      throw new Error(e.response.data.message);
+    });
+    return res;
+}
+
+export { getAllProducts, loginCall, logout};
 
 // async function register(user) {
 //     const res= await axios.post(config.registerUrl, user)
