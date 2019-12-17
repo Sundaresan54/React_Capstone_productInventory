@@ -41,6 +41,7 @@ class HeaderComponent extends Component {
     }
 
     loginIcons = () => {
+      //  { () => this.close() }
         return (
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item"><button className="nav-link loginButton" onClick={() => this.show('mini')}><i className="fa fa-sign-in"></i> Login</button></li>
@@ -49,18 +50,22 @@ class HeaderComponent extends Component {
         )
     }
 
-    onLogin = () => {
+    onLogin = async () => {
         const userId = document.getElementById("userId").value
         const password = document.getElementById("password").value
         //console.log("!!!!!!!!!!!!", this.props);
-        this.props.login(userId, password);
+        const user = await this.props.login(userId, password);
+        if (user) {
+            console.log("onLogin", user);
+
+        }
 
     }
 
     loginError = () => {
         return (
             <div className="login-row">
-                <p className='register'>{this.props.user.message}</p>
+                <p className='login-error'>{this.props.user.error}</p>
             </div>
         )
     }
@@ -72,14 +77,12 @@ class HeaderComponent extends Component {
 
     render() {
 
-        const { open } = this.state
-        // console.log("99999",this.props.user.modal);
+        const { open } = this.state;
         console.log(this.state.open, "modal ")
 
         let modal = (
             <div>
-
-                <Modal className="loginModal" size="small" open={open} onClose={() => this.close()}>
+                <Modal className="loginModal" size="tiny" open={open} onClose={() => this.close()}>
                     <Modal.Header>Login</Modal.Header>
                     <Modal.Content>
                         <div className="login-row">
@@ -90,23 +93,22 @@ class HeaderComponent extends Component {
                             <label className="label-text">Password</label>
                             <input type="password" id="password" placeholder="Enter your password"></input>
                         </div>
-                        {/* <div className="login-row">
-                            </div> */}
+                        {
+                            (this.props.user.error) ? this.loginError() : null
+                        }
 
+                        <div className="login-row">
+                            <button positive type="button" className="btn btn-outline-success login-submit" onClick={this.onLogin}>Submit</button>
+                            <button negative type="button" className="btn btn-outline-danger login-cancel" onClick={() => this.close()}>Close</button>
+                        </div>
+                        <div className="login-row">
+                            <p className='register'>New User? <a href='/'>click here to signup</a></p>
+                        </div>
                     </Modal.Content>
-                    <Modal.Actions>
-                        <button positive type="button" className="btn btn-outline-success login-submit" onClick={this.onLogin}>Submit</button>
-                        <button negative type="button" className="btn btn-outline-danger login-cancel" onClick={() => this.close()}>Close</button>
-
-                        {/* <Button negative onClick={() => this.close()}>No</Button>
-                        <Button
-                            positive
-                            icon='checkmark'
-                            labelPosition='right'
-                            content='Yes'
-                        /> */}
-                    </Modal.Actions>
                 </Modal>
+                {
+
+                }
             </div>
         )
         return (
