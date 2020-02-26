@@ -10,7 +10,12 @@ let ProductSchema = new mongoose.Schema({
         trim: true,
         lowercase: true
     },
-    Description: {
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    gender: {
         type: String,
         required: true,
         trim: true
@@ -21,14 +26,33 @@ let ProductSchema = new mongoose.Schema({
         trim: true,
         lowercase: true
     },
+    sleeveType:{
+        type: String,
+        trim: true,
+        lowercase: true
+    },
+    neckType:{
+        type: String,
+        trim: true,
+        lowercase: true
+    },
     manufacturer: {
         type: String,
         required: true,
         trim: true
     },
-    price: {
+    salesPrice: {
         type: Number,
         required: true,
+        trim: true
+    },
+    MRP: {
+        type: Number,
+        required: true,
+        trim: true
+    },
+    manufactureCost: {
+        type: Number,
         trim: true
     },
     quantity: {
@@ -36,6 +60,11 @@ let ProductSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    image1:{},
+    image2:{},
+    image3:{},
+    image4:{},
+    image5:{},
     viewed: {
         type: String,
         default: 0
