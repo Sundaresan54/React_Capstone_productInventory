@@ -1,9 +1,9 @@
 .product{
-    padding:10px;
+    margin-bottom:15px;
 }
 
 .productimg{
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 .product-img{
@@ -19,4 +19,45 @@
 }
 .padding-rt1{
     margin-left: 80px
+}
+
+.AddProduct-field{
+    margin:15px;
+}
+
+.label-field{
+    width: 8%;
+    margin-left: 5%;
+}
+
+.filter{
+    background-color: gray;
+}
+
+.ui.styled.accordion {
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 2%;
+}
+
+#wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:995px;
+}
+#output_image
+{
+ max-width:300px;
+}
+
+.cardBoxSize{
+    width: 190px;
+}
+
+.inputImgStyle{
+    font-size: 10px !important;
+    font-weight: 700;
+    width: 100%;
 }

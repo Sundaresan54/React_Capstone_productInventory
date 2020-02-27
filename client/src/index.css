@@ -23,8 +23,9 @@ code {
 }
 
 .label-text{
-  width: 100px;
+  width: 110px;
   font-size: 20px;
+  margin-top: auto;
 }
 
 .login-submit{
@@ -39,6 +40,10 @@ code {
   margin:20px;
 }
 
+.signup-row{
+  margin:10px;
+}
+
 .modal-body{
   padding-left: 40px;
 }
@@ -47,7 +52,42 @@ input{
   font-size: large;
 }
 
-.register{
+.login-error{
+  color: crimson;
   text-align:center;
   padding-top: 15px;
+}
+
+.loginModal{
+  height: auto;
+  margin-top:200px !important;
+  margin-left:500px !important;
+}
+
+.modalHeader{
+  width: 50%;
+  height:65px;
+}
+
+.ui.modal>.header{
+  padding: 0px;
+}
+
+.ui.modal>.content{
+  padding-left: 60px;
+}
+
+.register:hover{
+  color:blue;
+  cursor: pointer;
+}
+
+.email-error{
+  color: crimson;
+  text-align:center;
+  padding: 0px;
+}
+
+.edited{
+  line-height: 50px;
 }

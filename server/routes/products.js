@@ -33,12 +33,16 @@ router.get('/views',auth,async (req, res) => {
 });
 
 router.post('/add', auth,(req, res) => {
+    console.log("addddd",req.body.image1);
+    
     let product = new Product({
         ...req.body,
         creator : req.user._id
     });
 
     product.save().then(() => {
+        console.log("add product",product);
+        
         res.send({product});
     }).catch((err) => {
         if(err)
