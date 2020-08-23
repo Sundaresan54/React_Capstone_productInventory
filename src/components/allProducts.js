@@ -5,7 +5,7 @@ const AllProducts = (props) => {
 	return (
 		<div className="row product-cards">
 			{ 
-			  props.products.map((product, i) => {
+			 props.products &&  props.products.map((product, i) => {
 				return <Product key={i} product={product} index={i} {...props}></Product>
 			  })
 			}

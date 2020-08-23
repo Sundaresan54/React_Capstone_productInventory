@@ -39,6 +39,7 @@ code {
 
 .product-cards {
   margin: 10px 0px 50px -10px;
+  margin-top: 80px;
 }
 
 .customize-field {
@@ -81,4 +82,15 @@ code {
 
 .w-90 {
   width: 95%;
+}
+
+.btn-hover:hover {
+background-image:none;
+background-color:#007bff!important;
+
+}
+
+.search-field {
+  margin-left:180px;
+  box-shadow: 2px 2px 2px 5px #007bff!important;
 }

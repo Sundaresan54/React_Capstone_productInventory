@@ -1,32 +1,13 @@
 {
   "products": [
     {
-      "name": "TV",
-      "manufacturer": "SONY",
-      "quantity": "3",
-      "price": 35000,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSplxNvQwPDruZTSdiIvt45nJzu3QBSGYo0W3RToX9-MNwjdiGb",
-      "description": "Experience the unmatched picture quality Sony televisions at great prices at Amazon India.",
-      "id": 1
-    },
-    {
-      "name": "Bed",
-      "manufacturer": "Forzza Furniture",
-      "quantity": 15,
-      "price": "30000",
-      "image": "http://pluspng.com/img-png/bedroom-png-hd-modern-reclaimed-wood-platform-bed-modern-beds-grand-rapids-by-woodland-creek-1561.png",
-      "description": "Enjoy deep and blissful sleep with this Forzza King Drawer Bed.",
-      "id": 3
-    },
-    {
-      "id": 4,
       "name": "OnePlus 6",
-      "category": "Electronics",
       "manufacturer": "One plus",
-      "price": 32500,
-      "quantity": 3,
+      "quantity": "5",
+      "price": "3700",
+      "image": "https://cdn.mos.cms.futurecdn.net/A34hrrbFRE5soeqLEQ5aEi-768-80.jpg",
       "description": "It’s built to endure, has a premium sense of heft, oh… and it’s made of glass.",
-      "image": "https://cdn.mos.cms.futurecdn.net/A34hrrbFRE5soeqLEQ5aEi-768-80.jpg"
+      "id": 4
     },
     {
       "id": 5,
@@ -117,6 +98,15 @@
       "description": "This is a kind of mirror which can be used as mirror for wall, wall mirror.",
       "image": "https://4.imimg.com/data4/KM/MC/MY-2298919/dressing-table-500x500.jpg",
       "id": 15
+    },
+    {
+      "name": "OnePlus 8",
+      "manufacturer": "oneplus",
+      "quantity": "5",
+      "price": "38000",
+      "image": "https://www.91-img.com/pictures/138343-v1-oneplus-8-8gb-ram-mobile-phone-large-1.jpg?tr=q-60",
+      "description": "Never Settle",
+      "id": 16
     }
   ],
   "users": [
@@ -152,6 +142,23 @@
         "5": 1,
         "14": 2
       }
+    },
+    {
+      "firstName": "Sundaresan",
+      "lastName": "V",
+      "email": "sundargopal26@gmail.com",
+      "password": "Qwerty@123",
+      "id": 3,
+      "views": {
+        "1": 11,
+        "4": 11,
+        "5": 2,
+        "7": 5,
+        "13": 1,
+        "14": 1,
+        "17": 3
+      },
+      "mobile": "9865089625"
     }
   ]
 }

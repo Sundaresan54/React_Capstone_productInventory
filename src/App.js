@@ -1,37 +1,142 @@
-import React, { Suspense, lazy } from 'react';
-import { Route } from 'react-router-dom';
-import Header from './components/header';
-import Footer from './components/footer';
+import React from 'react';
+import { Navbar, Nav, NavDropdown, Modal,Form, Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from './actions/userActions';
+import { Link } from 'react-router-dom';
 
-// import About from './components/about';
-// import Home from './components/home';
-// import ProductDetail from './components/productDetail';
-// import AddProduct from './components/addProduct';
-// import Profile from './profile';
+import Signup from './components/signup';
+import Signin from './components/signin';
+import Router from './components/router'
 
-const Home = lazy(() => import('./components/home'));
-const ProductDetail = lazy(() => import('./components/productDetail'));
-const AddProduct = lazy(() => import('./components/addProduct'));
-const About = lazy(() => import('./components/about'));
-const Profile = lazy(() => import('./components/profile'));
+class Header extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isLoggedIn: false,
+			showModal: false,
+			showSignin: true,
+			products: []
+		}
+	}
+componentWillMount () {
+  this.props.getAllProducts();
+}
+componentWillReceiveProps(newProps) {
+  this.setState({products: newProps.products});
+}
+	componentDidMount() {
+		let userId = sessionStorage.getItem('userId');
+		if(userId){
+			this.props.getUserDetails(userId);
+			this.setState({isLoggedIn: true});
+			
+		}
+		
+	}
 
-const App = () => {
-  return (
-    <div>
-      <Header></Header>
-      <div className="mt-56">
-        <Suspense fallback={<h3>Loading...</h3>}>
-          <Route path="/" exact component={Home} />
-          <Route path="/productDetail/:id" component={ProductDetail} />
-          <Route path="/add-product" component={AddProduct} />
-          <Route path="/edit-product/:id" component={AddProduct} />
-          <Route path="/profile" component={Profile} />
-        	<Route path="/about" component={About} />
-        </Suspense>
-      </div>
-      <Footer></Footer>
-    </div>
-  );
+	goToAbout = () => {
+		this.props.history.push('/about');
+	}
+
+	goToProducts = () => {
+		this.props.history.push('/');
+	}
+
+	showModal = () => {
+		this.setState({showModal: true});
+	}
+
+	handleClose = () => {
+		this.setState({showModal: false});
+	}
+
+	showSignup = () => {
+		this.setState({showSignin: false});
+	}
+
+	showSignin = () => {
+		this.setState({showSignin: true});
+	}
+
+	goToProfile = () => {
+		this.props.history.push('/profile');
+	}
+
+	logout = () => {
+		sessionStorage.removeItem('userId');
+		this.props.history.push('/');
+		window.location.reload();
+	}
+
+	onSearch = (e) => {
+		let filteredProducts = this.props.products.filter(product => {
+			
+			return product.name.toLowerCase().indexOf(e.target.value.toLowerCase()) >= 0;
+		});
+		this.setState({products: filteredProducts});
+	}
+
+	render() {
+    
+		return (
+			<div>
+				<Navbar fixed="top" expand="lg" bg="primary" variant="dark">
+				  <Navbar.Brand className="pointer" onClick={this.goToProducts}>Products Inventory</Navbar.Brand>
+				  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+				  <div className={this.state.isLoggedIn ? "col-md-4" : "col-md-6"}>
+						    <Form.Control className = "search-field" type="text" placeholder="Search Product" onChange={this.onSearch}/>
+					  	</div>
+              {
+					  		this.state.isLoggedIn ?
+					  		<div >
+						  		<Link to="/add-product" >
+						  			<Button className = "btn-hover" variant="light" style={{border: '1px solid #ced4da',marginLeft:'180px',float:'right'}}>Add Product</Button>
+						  		</Link>
+						  	</div>: ''
+						 }
+				  <Navbar.Collapse id="responsive-navbar-nav">
+				    <Nav className="ml-auto">
+				      <Nav.Link className="c-wh" onClick={this.goToAbout}>About</Nav.Link>
+				      {!this.state.isLoggedIn ? <Nav.Link className="c-wh" onClick={this.showModal}>Login</Nav.Link> : ''}
+				      {
+				      	this.state.isLoggedIn ?
+					       	<NavDropdown title={this.props.users && this.props.users.length > 0 ? this.props.users[0].firstName : ''} id="collasible-nav-dropdown">
+			        	    	<NavDropdown.Item onClick={this.goToProfile}>Profile</NavDropdown.Item>
+			        	    	<NavDropdown.Item onClick={this.logout}>Logout</NavDropdown.Item>
+			      		    </NavDropdown> : ''
+			      	  }
+				    </Nav>
+				  </Navbar.Collapse>
+				</Navbar>
+
+				<Modal show={this.state.showModal} onHide={this.handleClose} size="lg" centered>
+			      <Modal.Header closeButton>
+			        <Modal.Title>
+			          {this.state.showSignin ? 'Signin' : 'Signup'}
+			        </Modal.Title>
+			      </Modal.Header>
+			      <Modal.Body>
+			        {this.state.showSignin ? <Signin {...this.props}></Signin> : ''}
+			        {!this.state.showSignin ? <Signup></Signup>: ''}
+			        <br/>
+			         {this.state.showSignin ? <p>Not Registered? <a href="#!" onClick={this.showSignup}>Signup Here</a></p> : '' }
+			         {!this.state.showSignin ? <p>Already Registered? <a href="#!" onClick={this.showSignin}>Login Here</a></p> : '' }
+			      </Modal.Body>
+				</Modal>
+        <Router  {...this.state}/>
+			</div>
+		);
+	}
 }
 
-export default App;
+
+
+const mapStateToProps = (state) => {
+	return {
+		users: state.users,
+		products: state.products
+	}
+}
+
+export default connect(mapStateToProps, actions)(withRouter(Header));
