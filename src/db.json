@@ -10,14 +10,13 @@
       "id": 4
     },
     {
-      "id": 5,
       "name": "Jeans",
-      "category": "Fashion",
       "manufacturer": "Pep Jeans",
-      "price": 3200,
-      "quantity": 27,
+      "quantity": "29",
+      "price": "2200",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7S7JdPpd4TVIGkppWzQDF2MfwgmZ357ckVZgg6x5DJ43z7RRfQ",
       "description": "5 pockets mid rise jeans, lightly washed, has a zip fly with button closure.",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7S7JdPpd4TVIGkppWzQDF2MfwgmZ357ckVZgg6x5DJ43z7RRfQ"
+      "id": 5
     },
     {
       "id": 6,
@@ -107,6 +106,15 @@
       "image": "https://www.91-img.com/pictures/138343-v1-oneplus-8-8gb-ram-mobile-phone-large-1.jpg?tr=q-60",
       "description": "Never Settle",
       "id": 16
+    },
+    {
+      "name": "Superman T-shirt",
+      "manufacturer": "new apparels",
+      "quantity": "240",
+      "price": "999",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71sIwS7nuRL._UY879_.jpg",
+      "description": "Comfortable tshirt round neck half sleeve",
+      "id": 17
     }
   ],
   "users": [
@@ -159,6 +167,17 @@
         "17": 3
       },
       "mobile": "9865089625"
+    },
+    {
+      "firstName": "Sathish",
+      "lastName": "M",
+      "email": "sathish.24081995@gmail.com",
+      "password": "S@chu2408",
+      "id": 4,
+      "views": {
+        "4": 2,
+        "5": 3
+      }
     }
   ]
 }

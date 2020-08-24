@@ -16,7 +16,7 @@ const Product = (props) => {
 
   return (
     <div className="col-xs-12 col-sm-6 col-md-3">
-      <Card style={{ width: '19rem', marginBottom: '20px' }}>
+      <Card style={{ width: '19rem', marginBottom: '20px',textAlign: 'center' }}>
       <Link to={`/productDetail/${props.product.id}`}>
 	  	<Card.Img style={{height: '200px'}} variant="top" src={props.product.image} />
 	  </Link>
