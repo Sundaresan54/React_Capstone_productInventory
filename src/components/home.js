@@ -49,7 +49,7 @@ class Home extends React.Component {
 				</div>
 				<Banner></Banner>
 				<div>
-				<div className={this.state.isLoggedIn ? "col-md-4" : "col-md-6"} style = {{float: 'right' ,marginLeft: '120px',width: '320px',marginTop: '10px'}}>
+				<div className={this.state.isLoggedIn ? "col-md-4" : "col-md-6"} style = {{float: 'right' ,marginLeft: '120px',width: '350px',marginTop: '10px'}}>
 					  		<Card body className="customize-field">
 							  <Form.Group id="formGridCheckbox">
 							    <Form.Check inline type="checkbox" name="displayPrice" onChange={this.handleFieldChange} label="Price" checked={this.state.displayPrice}/>
